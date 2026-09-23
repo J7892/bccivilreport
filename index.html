@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.C. Civil Court New Cases Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .table-container { max-height: calc(100vh - 360px); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <div class="flex items-center space-x-3">
+            <span class="p-2 bg-blue-800 rounded-lg text-yellow-300">
+              <i class="fa-solid fa-scale-balanced text-2xl"></i>
+            </span>
+            <div>
+              <h1 class="text-2xl font-bold tracking-tight">BC Civil Court New Case Tracker</h1>
+              <p class="text-sm text-blue-200">Daily civil claims published by Court Services Online (CSO)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Buttons -->
+        <div class="flex items-center gap-3">
+          <a href="data/bc_civil_cases.xlsx" download class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition shadow-sm">
+            <i class="fa-solid fa-file-excel text-base"></i>
+            <span>Download Excel</span>
+          </a>
+          <a href="data/bc_civil_cases.csv" download class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-lg text-sm transition shadow-sm">
+            <i class="fa-solid fa-file-csv text-base"></i>
+            <span>Download CSV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1 flex flex-col">
+
+    <!-- Metrics Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs uppercase font-semibold text-slate-500">Indexed Cases</p>
+          <p id="stat-total" class="text-2xl font-bold text-slate-800">--</p>
+        </div>
+        <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="fa-solid fa-folder-open text-xl"></i></div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs uppercase font-semibold text-slate-500">Filtered Matches</p>
+          <p id="stat-matched" class="text-2xl font-bold text-indigo-600">--</p>
+        </div>
+        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg"><i class="fa-solid fa-filter text-xl"></i></div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs uppercase font-semibold text-slate-500">Court Registries</p>
+          <p id="stat-courts" class="text-2xl font-bold text-slate-800">--</p>
+        </div>
+        <div class="p-3 bg-amber-50 text-amber-600 rounded-lg"><i class="fa-solid fa-landmark text-xl"></i></div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs uppercase font-semibold text-slate-500">Last Synced</p>
+          <p id="stat-updated" class="text-sm font-semibold text-slate-700">Loading...</p>
+        </div>
+        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-lg"><i class="fa-solid fa-clock-rotate-left text-xl"></i></div>
+      </div>
+    </div>
+
+    <!-- Filters & Search Toolbar -->
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+        <!-- Search bar -->
+        <div class="md:col-span-5 relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <input type="text" id="searchInput" placeholder="Search Style of Cause, parties, file #..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Court Location dropdown -->
+        <div class="md:col-span-3">
+          <select id="courtFilter" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">All Court Locations</option>
+          </select>
+        </div>
+
+        <!-- Classification dropdown -->
+        <div class="md:col-span-3">
+          <select id="classFilter" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">All Classifications</option>
+          </select>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="md:col-span-1 flex items-center">
+          <button id="resetFilters" class="w-full py-2 px-3 border border-slate-300 hover:bg-slate-100 rounded-lg text-xs font-semibold text-slate-600 transition" title="Clear Filters">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cases Data Table -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col flex-1">
+      <div class="overflow-x-auto overflow-y-auto table-container">
+        <table class="w-full text-left text-sm text-slate-700 divide-y divide-slate-200">
+          <thead class="bg-slate-100 text-xs font-semibold text-slate-600 uppercase tracking-wider sticky top-0 z-10">
+            <tr>
+              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Date Opened')">
+                Date Opened <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Court Location')">
+                Court Location <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th scope="col" class="px-4 py-3">File #</th>
+              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Classification')">
+                Classification <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Style of Cause')">
+                Style of Cause (Parties) <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th scope="col" class="px-4 py-3 text-center">Docs</th>
+            </tr>
+          </thead>
+          <tbody id="caseTableBody" class="divide-y divide-slate-100 font-normal">
+            <tr>
+              <td colspan="6" class="px-4 py-12 text-center text-slate-400">
+                <i class="fa-solid fa-spinner fa-spin text-2xl mb-2 text-blue-600"></i>
+                <p>Loading cases data...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <div class="px-4 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-600">
+        <div id="pageInfo">Showing 0 of 0</div>
+        <div class="flex items-center gap-1">
+          <button id="btnPrev" class="px-3 py-1.5 border border-slate-300 rounded hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent" onclick="changePage(-1)">Previous</button>
+          <span id="currentPageNum" class="px-3 font-semibold text-slate-800">1</span>
+          <button id="btnNext" class="px-3 py-1.5 border border-slate-300 rounded hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent" onclick="changePage(1)">Next</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 text-xs text-slate-500 border-t border-slate-200 bg-white">
+    Data sourced directly from British Columbia Court Services Online (CSO) Daily New Case Report &bull; Automated daily via GitHub Actions
+  </footer>
+
+  <script>
+    let allCases = [];
+    let filteredCases = [];
+    let currentPage = 1;
+    const pageSize = 25;
+    let sortColumn = 'Date Opened';
+    let sortAsc = false;
+
+    async function loadData() {
+      try {
+        const res = await fetch('data/cases_search_index.json?v=' + Date.now());
+        if (!res.ok) throw new Error('Network error: ' + res.status);
+        const data = await res.json();
+
+        allCases = data.cases || [];
+        document.getElementById('stat-total').textContent = data.total_records.toLocaleString();
+        document.getElementById('stat-updated').textContent = data.updated_at || 'Recently';
+        document.getElementById('stat-courts').textContent = (data.court_locations || []).length;
+
+        // Populate dropdowns
+        const courtSel = document.getElementById('courtFilter');
+        (data.court_locations || []).forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c;
+          opt.textContent = c;
+          courtSel.appendChild(opt);
+        });
+
+        const classSel = document.getElementById('classFilter');
+        (data.classifications || []).forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c;
+          opt.textContent = c;
+          classSel.appendChild(opt);
+        });
+
+        applyFilters();
+      } catch (err) {
+        console.error('Failed to load cases:', err);
+        document.getElementById('caseTableBody').innerHTML = `
+          <tr><td colspan="6" class="px-4 py-8 text-center text-red-500">
+            Failed to load data index. If running locally, please run through a local HTTP server or execute pipeline.py.
+          </td></tr>`;
+      }
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const court = document.getElementById('courtFilter').value;
+      const cls = document.getElementById('classFilter').value;
+
+      filteredCases = allCases.filter(item => {
+        if (court && item['Court Location'] !== court) return false;
+        if (cls && item['Classification'] !== cls) return false;
+        if (q) {
+          const hay = `${item['Style of Cause']} ${item['File Number']} ${item['Court Location']} ${item['Classification']}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('stat-matched').textContent = filteredCases.length.toLocaleString();
+      currentPage = 1;
+      renderTable();
+    }
+
+    function sortTable(col) {
+      if (sortColumn === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortColumn = col;
+        sortAsc = true;
+      }
+      filteredCases.sort((a, b) => {
+        const valA = (a[col] || '').toLowerCase();
+        const valB = (b[col] || '').toLowerCase();
+        if (valA < valB) return sortAsc ? -1 : 1;
+        if (valA > valB) return sortAsc ? 1 : -1;
+        return 0;
+      });
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('caseTableBody');
+      const start = (currentPage - 1) * pageSize;
+      const end = start + pageSize;
+      const pageItems = filteredCases.slice(start, end);
+
+      if (pageItems.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-12 text-center text-slate-500">No matching civil claims found.</td></tr>`;
+      } else {
+        tbody.innerHTML = pageItems.map(row => `
+          <tr class="hover:bg-blue-50/50 transition">
+            <td class="px-4 py-3 whitespace-nowrap text-xs font-semibold text-slate-700">${row['Date Opened'] || ''}</td>
+            <td class="px-4 py-3 whitespace-nowrap text-xs text-slate-800 font-medium">${row['Court Location'] || ''}</td>
+            <td class="px-4 py-3 whitespace-nowrap text-xs font-mono text-indigo-700 font-semibold">${row['File Number'] || ''}</td>
+            <td class="px-4 py-3 whitespace-nowrap text-xs text-slate-600">
+              <span class="inline-block px-2 py-0.5 rounded-full text-xs ${getClassBadgeColor(row['Classification'])}">${row['Classification'] || 'General'}</span>
+            </td>
+            <td class="px-4 py-3 text-xs font-medium text-slate-900">${row['Style of Cause'] || ''}</td>
+            <td class="px-4 py-3 text-center whitespace-nowrap text-xs">
+              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-medium bg-emerald-100 text-emerald-800">${row['Electronic Docs'] || 'YES'}</span>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Update pagination
+      const totalPages = Math.max(1, Math.ceil(filteredCases.length / pageSize));
+      document.getElementById('currentPageNum').textContent = `${currentPage} / ${totalPages}`;
+      document.getElementById('pageInfo').textContent = `Showing ${filteredCases.length ? start + 1 : 0} to ${Math.min(end, filteredCases.length)} of ${filteredCases.length} entries`;
+      document.getElementById('btnPrev').disabled = currentPage <= 1;
+      document.getElementById('btnNext').disabled = currentPage >= totalPages;
+    }
+
+    function getClassBadgeColor(cls) {
+      if (!cls) return 'bg-slate-100 text-slate-700';
+      if (cls.includes('Small Claims')) return 'bg-cyan-50 text-cyan-700 border border-cyan-200';
+      if (cls.includes('Foreclosure')) return 'bg-amber-50 text-amber-700 border border-amber-200';
+      if (cls.includes('Probate')) return 'bg-purple-50 text-purple-700 border border-purple-200';
+      return 'bg-blue-50 text-blue-700 border border-blue-200';
+    }
+
+    function changePage(delta) {
+      const totalPages = Math.ceil(filteredCases.length / pageSize);
+      currentPage = Math.min(Math.max(1, currentPage + delta), totalPages);
+      renderTable();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('courtFilter').addEventListener('change', applyFilters);
+    document.getElementById('classFilter').addEventListener('change', applyFilters);
+    document.getElementById('resetFilters').addEventListener('click', () => {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('courtFilter').value = '';
+      document.getElementById('classFilter').value = '';
+      applyFilters();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
