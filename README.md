@@ -4,7 +4,7 @@ Automated scraper and interactive web search dashboard for British Columbia Cour
 
 ## Features
 
-- **Automated Daily Extraction**: Runs via GitHub Actions Monday through Friday at 7:00 AM Pacific Time (14:00 UTC).
+- **Automated Daily Extraction**: Runs via GitHub Actions Monday through Friday at 12:00 PM Pacific Time (19:00 UTC).
 - **Session-Aware Downloader**: Authenticates with Court Services Online (`index.do` -> `newCaseReport.do` -> `viewNewCaseReport.do`) to acquire session cookies and download the daily PDF report.
 - **Accurate PDF Column Parsing**: Parses coordinates and extracts:
   - `Court Location` (handles carryover registry headings and boundary digit separation)

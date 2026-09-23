@@ -2,8 +2,8 @@ name: Daily BC Civil New Cases Report Scraper
 
 on:
   schedule:
-    # Run daily at 14:00 UTC (07:00 AM Vancouver / Pacific Time)
-    - cron: '0 14 * * 1-5'
+    # Run daily at 19:00 UTC (12:00 PM Vancouver / Pacific Time during PDT, 20:00 UTC during PST)
+    - cron: '0 19 * * 1-5'
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 permissions:
