@@ -8,124 +8,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    .table-container { max-height: calc(100vh - 360px); }
+    .table-container { max-height: calc(100vh - 195px); }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <div class="flex items-center space-x-3">
-            <span class="p-2 bg-blue-800 rounded-lg text-yellow-300">
-              <i class="fa-solid fa-scale-balanced text-2xl"></i>
-            </span>
-            <div>
-              <h1 class="text-2xl font-bold tracking-tight">BC Civil Court New Case Tracker</h1>
-              <p class="text-sm text-blue-200">Daily civil claims published by Court Services Online (CSO)</p>
-            </div>
+  <!-- Compact Header -->
+  <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white shadow-sm flex-none">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-3">
+        <!-- Title & Subtitle inline -->
+        <div class="flex items-center space-x-2.5 min-w-0">
+          <span class="p-1.5 bg-blue-800 rounded text-yellow-300 flex-shrink-0">
+            <i class="fa-solid fa-scale-balanced text-base"></i>
+          </span>
+          <div class="truncate">
+            <h1 class="text-base sm:text-lg font-bold tracking-tight inline leading-tight">BC Civil Court New Cases</h1>
+            <span class="hidden md:inline text-xs text-blue-200 ml-2 font-normal">&bull; Court Services Online (CSO)</span>
           </div>
         </div>
 
-        <!-- Download Buttons -->
-        <div class="flex items-center gap-3">
-          <a href="data/bc_civil_cases.xlsx" download class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition shadow-sm">
-            <i class="fa-solid fa-file-excel text-base"></i>
-            <span>Download Excel</span>
+        <!-- Downloads & Updated time -->
+        <div class="flex items-center gap-2 flex-shrink-0 text-xs">
+          <span class="hidden lg:inline text-blue-200 text-[11px] mr-1">Updated: <span id="stat-updated" class="text-white font-medium">Loading...</span></span>
+          <a href="data/bc_civil_cases.xlsx" download class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded text-xs font-medium transition shadow-sm" title="Download Excel">
+            <i class="fa-solid fa-file-excel"></i>
+            <span class="hidden sm:inline">Excel</span>
           </a>
-          <a href="data/bc_civil_cases.csv" download class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-lg text-sm transition shadow-sm">
-            <i class="fa-solid fa-file-csv text-base"></i>
-            <span>Download CSV</span>
+          <a href="data/bc_civil_cases.csv" download class="inline-flex items-center gap-1.5 bg-blue-700 hover:bg-blue-600 text-white px-2.5 py-1 rounded text-xs font-medium transition shadow-sm" title="Download CSV">
+            <i class="fa-solid fa-file-csv"></i>
+            <span class="hidden sm:inline">CSV</span>
           </a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1 flex flex-col">
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-2.5 w-full flex-1 flex flex-col min-h-0">
 
-    <!-- Metrics Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-        <div>
-          <p class="text-xs uppercase font-semibold text-slate-500">Indexed Cases</p>
-          <p id="stat-total" class="text-2xl font-bold text-slate-800">--</p>
-        </div>
-        <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="fa-solid fa-folder-open text-xl"></i></div>
-      </div>
-
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-        <div>
-          <p class="text-xs uppercase font-semibold text-slate-500">Filtered Matches</p>
-          <p id="stat-matched" class="text-2xl font-bold text-indigo-600">--</p>
-        </div>
-        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-lg"><i class="fa-solid fa-filter text-xl"></i></div>
-      </div>
-
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-        <div>
-          <p class="text-xs uppercase font-semibold text-slate-500">Court Registries</p>
-          <p id="stat-courts" class="text-2xl font-bold text-slate-800">--</p>
-        </div>
-        <div class="p-3 bg-amber-50 text-amber-600 rounded-lg"><i class="fa-solid fa-landmark text-xl"></i></div>
-      </div>
-
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-        <div>
-          <p class="text-xs uppercase font-semibold text-slate-500">Last Synced</p>
-          <p id="stat-updated" class="text-sm font-semibold text-slate-700">Loading...</p>
-        </div>
-        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-lg"><i class="fa-solid fa-clock-rotate-left text-xl"></i></div>
-      </div>
-    </div>
-
-    <!-- Filters & Search Toolbar -->
-    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-6">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+    <!-- Compact Unified Controls & Inline Metrics Bar -->
+    <div class="bg-white px-3 py-2.5 rounded-lg border border-slate-200 shadow-xs mb-2.5 flex-none flex flex-col gap-2">
+      <!-- Search & Filters Row -->
+      <div class="flex flex-col md:flex-row items-stretch md:items-center gap-2">
         <!-- Search bar -->
-        <div class="md:col-span-5 relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+        <div class="relative flex-1 min-w-[200px]">
+          <div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-slate-400 text-xs">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <input type="text" id="searchInput" placeholder="Search Style of Cause, parties, file #..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <input type="text" id="searchInput" placeholder="Search party names, file #, etc..." class="w-full pl-8 pr-3 py-1.5 border border-slate-300 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
         </div>
 
         <!-- Court Location dropdown -->
-        <div class="md:col-span-3">
-          <select id="courtFilter" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-            <option value="">All Court Locations</option>
+        <div class="md:w-56">
+          <select id="courtFilter" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">All Court Registries</option>
           </select>
         </div>
 
         <!-- Classification dropdown -->
-        <div class="md:col-span-3">
-          <select id="classFilter" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div class="md:w-56">
+          <select id="classFilter" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
             <option value="">All Classifications</option>
           </select>
         </div>
 
         <!-- Reset Button -->
-        <div class="md:col-span-1 flex items-center">
-          <button id="resetFilters" class="w-full py-2 px-3 border border-slate-300 hover:bg-slate-100 rounded-lg text-xs font-semibold text-slate-600 transition" title="Clear Filters">
-            Reset
-          </button>
-        </div>
+        <button id="resetFilters" class="px-2.5 py-1.5 border border-slate-300 hover:bg-slate-50 rounded-md text-xs font-medium text-slate-600 transition self-center md:self-auto" title="Clear All Filters">
+          Reset
+        </button>
       </div>
 
-      <!-- Quick View Presets -->
-      <div class="mt-3 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2">
-        <span class="text-xs font-medium text-slate-500 mr-1"><i class="fa-solid fa-bookmark text-blue-500 mr-1"></i>Quick Views:</span>
-        <button id="presetVancouver" onclick="applyPreset('Vancouver Law Courts', 'Supreme-Supreme Civil (General)', 'presetVancouver')" class="preset-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100 transition shadow-sm">
-          <i class="fa-solid fa-building-columns text-[11px]"></i>
-          <span>Vancouver &bull; Supreme Civil</span>
-        </button>
-        <button id="presetVictoria" onclick="applyPreset('Victoria Law Courts', 'Supreme-Supreme Civil (General)', 'presetVictoria')" class="preset-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-indigo-200 bg-indigo-50 text-indigo-800 hover:bg-indigo-100 transition shadow-sm">
-          <i class="fa-solid fa-building-columns text-[11px]"></i>
-          <span>Victoria &bull; Supreme Civil</span>
-        </button>
+      <!-- Quick Preset Buttons & Compact Stats Summary -->
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs">
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mr-1">Views:</span>
+          <button id="presetVancouver" onclick="applyPreset('Vancouver Law Courts', 'Supreme-Supreme Civil (General)', 'presetVancouver')" class="preset-btn inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium border border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100 transition">
+            <i class="fa-solid fa-building-columns text-[10px]"></i>
+            <span>Vancouver Supreme Civil</span>
+          </button>
+          <button id="presetVictoria" onclick="applyPreset('Victoria Law Courts', 'Supreme-Supreme Civil (General)', 'presetVictoria')" class="preset-btn inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium border border-indigo-200 bg-indigo-50 text-indigo-800 hover:bg-indigo-100 transition">
+            <i class="fa-solid fa-building-columns text-[10px]"></i>
+            <span>Victoria Supreme Civil</span>
+          </button>
+        </div>
+
+        <!-- Inline Stats pills -->
+        <div class="flex items-center gap-3 text-[11px] text-slate-500 ml-auto">
+          <span>Showing <strong id="stat-matched" class="text-indigo-600 font-semibold">--</strong> of <strong id="stat-total" class="text-slate-700 font-semibold">--</strong> cases</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="hidden sm:inline"><strong id="stat-courts" class="text-slate-700 font-semibold">--</strong> registries</span>
+        </div>
       </div>
     </div>
 
@@ -135,47 +108,47 @@
         <table class="w-full text-left text-sm text-slate-700 divide-y divide-slate-200">
           <thead class="bg-slate-100 text-xs font-semibold text-slate-600 uppercase tracking-wider sticky top-0 z-10">
             <tr>
-              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Date Opened')">
+              <th scope="col" class="px-3 py-2 cursor-pointer hover:bg-slate-200" onclick="sortTable('Date Opened')">
                 Date Opened <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
               </th>
-              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Court Location')">
+              <th scope="col" class="px-3 py-2 cursor-pointer hover:bg-slate-200" onclick="sortTable('Court Location')">
                 Court Location <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
               </th>
-              <th scope="col" class="px-4 py-3">File #</th>
-              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Classification')">
+              <th scope="col" class="px-3 py-2">File #</th>
+              <th scope="col" class="px-3 py-2 cursor-pointer hover:bg-slate-200" onclick="sortTable('Classification')">
                 Classification <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
               </th>
-              <th scope="col" class="px-4 py-3 cursor-pointer hover:bg-slate-200" onclick="sortTable('Style of Cause')">
+              <th scope="col" class="px-3 py-2 cursor-pointer hover:bg-slate-200" onclick="sortTable('Style of Cause')">
                 Style of Cause (Parties) <i class="fa-solid fa-sort ml-1 text-slate-400"></i>
               </th>
-              <th scope="col" class="px-4 py-3 text-center">Docs</th>
+              <th scope="col" class="px-3 py-2 text-center">Docs</th>
             </tr>
           </thead>
           <tbody id="caseTableBody" class="divide-y divide-slate-100 font-normal">
             <tr>
-              <td colspan="6" class="px-4 py-12 text-center text-slate-400">
-                <i class="fa-solid fa-spinner fa-spin text-2xl mb-2 text-blue-600"></i>
-                <p>Loading cases data...</p>
+              <td colspan="6" class="px-4 py-10 text-center text-slate-400">
+                <i class="fa-solid fa-spinner fa-spin text-xl mb-1 text-blue-600"></i>
+                <p class="text-xs">Loading cases data...</p>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Pagination Footer -->
-      <div class="px-4 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-600">
+      <!-- Compact Pagination Footer -->
+      <div class="px-3 py-2 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-600 flex-none">
         <div id="pageInfo">Showing 0 of 0</div>
         <div class="flex items-center gap-1">
-          <button id="btnPrev" class="px-3 py-1.5 border border-slate-300 rounded hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent" onclick="changePage(-1)">Previous</button>
-          <span id="currentPageNum" class="px-3 font-semibold text-slate-800">1</span>
-          <button id="btnNext" class="px-3 py-1.5 border border-slate-300 rounded hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent" onclick="changePage(1)">Next</button>
+          <button id="btnPrev" class="px-2.5 py-1 border border-slate-300 rounded hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent" onclick="changePage(-1)">Previous</button>
+          <span id="currentPageNum" class="px-2.5 font-semibold text-slate-800">1</span>
+          <button id="btnNext" class="px-2.5 py-1 border border-slate-300 rounded hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent" onclick="changePage(1)">Next</button>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="text-center py-4 text-xs text-slate-500 border-t border-slate-200 bg-white">
-    Data sourced directly from British Columbia Court Services Online (CSO) Daily New Case Report &bull; Automated daily via GitHub Actions
+  <footer class="text-center py-2 text-[11px] text-slate-400 border-t border-slate-200 bg-white flex-none">
+    Data sourced from British Columbia Court Services Online (CSO) Daily New Case Report &bull; Automated daily via GitHub Actions
   </footer>
 
   <script>
@@ -272,15 +245,15 @@
       } else {
         tbody.innerHTML = pageItems.map(row => `
           <tr class="hover:bg-blue-50/50 transition">
-            <td class="px-4 py-3 whitespace-nowrap text-xs font-semibold text-slate-700">${row['Date Opened'] || ''}</td>
-            <td class="px-4 py-3 whitespace-nowrap text-xs text-slate-800 font-medium">${row['Court Location'] || ''}</td>
-            <td class="px-4 py-3 whitespace-nowrap text-xs font-mono text-indigo-700 font-semibold">${row['File Number'] || ''}</td>
-            <td class="px-4 py-3 whitespace-nowrap text-xs text-slate-600">
-              <span class="inline-block px-2 py-0.5 rounded-full text-xs ${getClassBadgeColor(row['Classification'])}">${row['Classification'] || 'General'}</span>
+            <td class="px-3 py-1.5 whitespace-nowrap text-xs font-semibold text-slate-700">${row['Date Opened'] || ''}</td>
+            <td class="px-3 py-1.5 whitespace-nowrap text-xs text-slate-800 font-medium">${row['Court Location'] || ''}</td>
+            <td class="px-3 py-1.5 whitespace-nowrap text-xs font-mono text-indigo-700 font-semibold">${row['File Number'] || ''}</td>
+            <td class="px-3 py-1.5 whitespace-nowrap text-xs text-slate-600">
+              <span class="inline-block px-1.5 py-0.5 rounded text-[11px] ${getClassBadgeColor(row['Classification'])}">${row['Classification'] || 'General'}</span>
             </td>
-            <td class="px-4 py-3 text-xs font-medium text-slate-900">${row['Style of Cause'] || ''}</td>
-            <td class="px-4 py-3 text-center whitespace-nowrap text-xs">
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-medium bg-emerald-100 text-emerald-800">${row['Electronic Docs'] || 'YES'}</span>
+            <td class="px-3 py-1.5 text-xs font-medium text-slate-900">${row['Style of Cause'] || ''}</td>
+            <td class="px-3 py-1.5 text-center whitespace-nowrap text-xs">
+              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-emerald-100 text-emerald-800">${row['Electronic Docs'] || 'YES'}</span>
             </td>
           </tr>
         `).join('');
