@@ -114,6 +114,19 @@
           </button>
         </div>
       </div>
+
+      <!-- Quick View Presets -->
+      <div class="mt-3 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2">
+        <span class="text-xs font-medium text-slate-500 mr-1"><i class="fa-solid fa-bookmark text-blue-500 mr-1"></i>Quick Views:</span>
+        <button id="presetVancouver" onclick="applyPreset('Vancouver Law Courts', 'Supreme-Supreme Civil (General)', 'presetVancouver')" class="preset-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100 transition shadow-sm">
+          <i class="fa-solid fa-building-columns text-[11px]"></i>
+          <span>Vancouver &bull; Supreme Civil</span>
+        </button>
+        <button id="presetVictoria" onclick="applyPreset('Victoria Law Courts', 'Supreme-Supreme Civil (General)', 'presetVictoria')" class="preset-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-indigo-200 bg-indigo-50 text-indigo-800 hover:bg-indigo-100 transition shadow-sm">
+          <i class="fa-solid fa-building-columns text-[11px]"></i>
+          <span>Victoria &bull; Supreme Civil</span>
+        </button>
+      </div>
     </div>
 
     <!-- Cases Data Table -->
@@ -295,13 +308,47 @@
       renderTable();
     }
 
-    document.getElementById('searchInput').addEventListener('input', applyFilters);
-    document.getElementById('courtFilter').addEventListener('change', applyFilters);
-    document.getElementById('classFilter').addEventListener('change', applyFilters);
+    function updatePresetHighlight(activeBtnId) {
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        if (btn.id === activeBtnId) {
+          btn.classList.add('ring-2', 'ring-blue-600', 'font-bold', 'bg-blue-600', 'text-white');
+          btn.classList.remove('bg-blue-50', 'bg-indigo-50', 'text-blue-800', 'text-indigo-800');
+        } else {
+          btn.classList.remove('ring-2', 'ring-blue-600', 'font-bold', 'bg-blue-600', 'text-white');
+          if (btn.id === 'presetVancouver') {
+            btn.classList.add('bg-blue-50', 'text-blue-800');
+          } else if (btn.id === 'presetVictoria') {
+            btn.classList.add('bg-indigo-50', 'text-indigo-800');
+          }
+        }
+      });
+    }
+
+    function applyPreset(court, classification, btnId) {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('courtFilter').value = court;
+      document.getElementById('classFilter').value = classification;
+      updatePresetHighlight(btnId);
+      applyFilters();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', () => {
+      updatePresetHighlight(null);
+      applyFilters();
+    });
+    document.getElementById('courtFilter').addEventListener('change', () => {
+      updatePresetHighlight(null);
+      applyFilters();
+    });
+    document.getElementById('classFilter').addEventListener('change', () => {
+      updatePresetHighlight(null);
+      applyFilters();
+    });
     document.getElementById('resetFilters').addEventListener('click', () => {
       document.getElementById('searchInput').value = '';
       document.getElementById('courtFilter').value = '';
       document.getElementById('classFilter').value = '';
+      updatePresetHighlight(null);
       applyFilters();
     });
 
