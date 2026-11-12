@@ -1,7 +1,9 @@
 Court Location,File Number,Classification,Style of Cause,Electronic Docs,Date Opened,Scraped At
 Abbotsford Law Courts,10775,Supreme-Supreme Civil (General),"CAIN, Kalum vs NURMANN HOLDINGS LTD.",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Chilliwack Law Courts,41520,Supreme-Foreclosure,"THE BANK OF NOVA SCOTIA vs BOUX, Tianna",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Courtenay Law Courts,9979,Supreme-Probate,"POULSEN, David vs POULSEN, Ejnar",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Courtenay Law Courts,9980,Supreme-Probate,"CLARKE, Louise vs CLARKE, Peter",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Courtenay Law Courts,9981,Supreme-Probate,"LENGSFELD, Lyndon vs LENGSFELD, Reinhard",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Courtenay Law Courts,9982,Supreme-Probate,"MCKAY, Siobhan vs MCKAY, Peter",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Cranbrook Law Courts,34924,Supreme- Enforcement/Legislated Statute,"JORGENSEN, Michael vs JORGENSEN, Katherine",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Kelowna Law Courts,148952,Supreme- Enforcement/Legislated Statute,"APPLE VALLEY MHP LTD vs RUCKLE, Ila",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
@@ -9,9 +11,12 @@ Kelowna Law Courts,148964,Supreme-Probate,"WEBER, Eric vs WEBER, Robert",YES,202
 Kelowna Law Courts,148967,Supreme-Supreme Civil (General),"FARBROTHER, Matthew vs MAG ROOFING INC.",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Kelowna Law Courts,148969,Supreme-Supreme Civil (General),"SALT, Emily vs KNUDSON, Lori",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Kelowna Law Courts,148972,Supreme-Supreme Civil (General),CUSTOM ELECTRIC LTD. vs 6069789 CANADA INC.,YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Kelowna Law Courts,148974,Supreme-Probate,"DERKSEN, Michelle vs MOCHENSKI, Jean",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+Kelowna Law Courts,148976,Supreme-Supreme Civil (General),"PORTER RAMSAY LLP vs CRAWFORD, Nicholas",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Nanaimo Law Courts,105586,Supreme-Supreme Civil (General),"DOBLER, Brenda Lee vs PLUNET-SMETANIUK, Taytum Danae",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Nanaimo Law Courts,105587,Supreme-Foreclosure,"CANADIAN IMPERIAL BANK OF COMMERCE vs DECEASED, Estate Of Charlotte Lorraine",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Nanaimo Law Courts,105637,Supreme-Supreme Civil (General),"GLOVER, Daniel vs LANCE, Ryan",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Nelson Law Courts,105637,Supreme-Supreme Civil (General),"GLOVER, Daniel vs LANCE, Ryan",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 New Westminster Law Courts,20746,Provincial-Small Claims,INFOX CONSULTING INC. vs UNI-ONE FOOD GROUP INC.,NO,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,20747,Provincial-Small Claims,"NDIONE, Olivier vs S & S AUTO SALES (1997) LTD.",NO,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,20748,Provincial-Small Claims,"MUSES ACADEMY FOR MUSIC INC. vs MA, King",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
@@ -26,16 +31,26 @@ New Westminster Law Courts,265235,Supreme-Supreme Civil (General),"NATIONAL BANK
 New Westminster Law Courts,265236,Supreme-Supreme Civil (General),"ZENTERRA COMMONS LIMITED PARTNERSHIP vs KADOO, Yatin",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,265237,Supreme-Supreme Civil (General),"ZENTERRA COMMONS LIMITED PARTNERSHIP vs AMIN, Mihir",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,265238,Supreme-Supreme Civil (General),"HAMLIN, Heather vs MCMILLAN, Gregory",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+New Westminster Law Courts,265239,Supreme-Supreme Civil (General),"KALER, Ranjodh vs DHARTI ENTERPRISES LTD.",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+New Westminster Law Courts,265240,Supreme-Supreme Civil (General),B. ANDERLINI EXCAVATING INC. vs 1312855 B.C. LTD,YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+New Westminster Law Courts,265241,Supreme-Supreme Civil (General),"SANDHU, Nachhattar vs COSTCO WHOLESALE CANADA LTD.",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 New Westminster Law Courts,265476,Supreme-Supreme Civil (General),AECOM ELECTRICAL LTD vs 3708 W18TH DEVELOPMENTS LTD,YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,265477,Supreme- Enforcement/Legislated Statute,"ZHOU, Yunfeng vs SMITH, Christopher",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,265478,Supreme-Supreme Civil (General),"HARRIS, Jennifer vs CITY OF BURNABY",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,265479,Supreme- Enforcement/Legislated Statute,"BHATTI, Preet vs CANNELL, Crispin",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+New Westminster Law Courts,265480,Supreme-Supreme Civil (General),"LALJI, Ronil vs ASSESSOR OF AREA # 11 - RICHMOND vs DELTA",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+New Westminster Law Courts,265481,Supreme-Supreme Civil (General),"SHAH, Richa vs SHAH, Megha",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 New Westminster Law Courts,28868,Supreme-Probate,"WOODCOCK, Linda vs WOODCOCK, Sheila",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,28869,Supreme-Probate,"LARSON, Kathleen vs WELLS, Kevin",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 New Westminster Law Courts,28870,Supreme-Probate,"THOMAS, Shannon vs MCKAY, Terrence",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+New Westminster Law Courts,28871,Supreme-Probate,"OSBORNE, Tracy vs DAVIS, Bernice",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Port Coquitlam Law Courts,00891,Supreme- Enforcement/Legislated Statute,"FAIRHAVEN VIVIAN APARTMENTS vs KERR, Robert",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Port Coquitlam Law Courts,00892,Supreme-Probate,"MCCONVILLE, James vs MCCONVILLE, Gwendoline",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+Port Coquitlam Law Courts,00893,Supreme-Supreme Civil (General),"HUA, Kim vs ALGHOUTI, Husam",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Powell River Law Courts,3129,Supreme-Probate,"FRENCH, Colleen vs FRENCH, Donalda",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Prince George Law Courts,2667624,Supreme-Probate,"NOVAK, Peter vs PRIJATEL, Joseph",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Provincial Court,8408,Provincial-Small Claims,"BOYLE, Gregory vs NATIONAL BANK OF CANADA",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+Provincial Court,8409,Provincial-Small Claims,"ADMIRALTY LEASING 2021 INC. vs LACSAMANA, Jonathan",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Richmond Provincial Court,32072,Provincial-Small Claims,"UNITED TILING LTD. vs CORRIGALL, Michelle",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Robson Square Provincial Court,2682274,Provincial-Small Claims,"GL LEASING BRITISH COLUMBIA INC. vs HO, Irene A Y",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Robson Square Provincial Court,2682275,Provincial-Small Claims,"WEST WAY DRYWALL LTD vs YEE, Ken",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
@@ -43,6 +58,7 @@ Robson Square Provincial Court,2682276,Provincial-Small Claims,"GL LEASING BRITI
 Robson Square Provincial Court,2682277,Provincial-Small Claims,XTERIOR - XCELLENCE ROOFING & GENERAL MAINTENANCE JONATHON LEBLANC (SOLE PROPRIETOR) vs RYDEL ROOFING & SIDING,YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Robson Square Provincial Court,2682278,Provincial-Small Claims,"PRESIDENT'S CHOICE BANK vs KAUR, Hardeep",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Robson Square Provincial Court,2682279,Provincial-Small Claims,"AMELCHANKA, Bryhita vs BARONE, Alessandro",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Robson Square Provincial Court,2682281,Provincial-Small Claims,"COLLABRIA FINANCIAL SERVICE INC. vs DIGPAL, Pritpaul K",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Surrey Provincial Court,95572,Provincial-Small Claims,GPI OUTDOOR DESIGNS (BC) INC. vs MONSOON DEVELOPMENTS LTD.,YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Surrey Provincial Court,95573,Provincial-Small Claims,SUPER SAVE DISPOSAL INC. vs CALVARY WORSHIP CENTRE,YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Surrey Provincial Court,95588,Provincial-Small Claims,"SUN, Christina vs MCKINNON, Ronald",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
@@ -58,6 +74,9 @@ Vancouver Law Courts,268388,Supreme-Supreme Civil (General),"LUCION, Liza vs COL
 Vancouver Law Courts,268396,Supreme-Supreme Civil (General),"MATTEHAK, Oxana vs CAMPBELL, Jordan",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Vernon Law Courts,59624,Supreme-Supreme Civil (General),"ABDEKMALEK, Amara vs COOKE, Robert",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
 Victoria Law Courts,2617265,Supreme-Supreme Civil (General),"GRANT, Stephen vs SNOW, Leiha",YES,2026-11-10,2026-11-10T23:48:53.887190+00:00
+Victoria Law Courts,262088,Provincial-Small Claims,"KEELING, Jennifer vs FUNK, Erin",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+Western Communities,8374,Provincial-Small Claims,"FENNELS RV REPAIR LTD. vs CAREY, Robert",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
+Williams Lake Law Courts,263093,Supreme-Probate,"NAVROT, Vincent vs SMITH, William",YES,2026-11-10,2026-11-12T01:07:47.968459+00:00
 Abbotsford Law Courts,10757,Supreme-Probate,"WOODROW, Christopher vs DUNLOP, Shirin",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Abbotsford Law Courts,10758,Supreme-Probate,"MACMILLAN, Donna vs MILLER, Rita",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Abbotsford Law Courts,10759,Supreme-Supreme Civil (General),"CHROUST, Rudy vs CHROUST, Colin",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
@@ -79,6 +98,7 @@ Fort St John Law Courts,27580,Provincial-Small Claims,"AMEX BANK OF CANADA vs RO
 Grand Forks Law Courts,16757,Provincial-Small Claims,"AMEX BANK OF CANADA vs VAN BOEYEN, Christine Michelle",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
 Kamloops Law Courts,21174,Supreme-Probate,"POWELL, Cindy vs JOHNSTON, Tyler",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
 Kamloops Law Courts,44136,Provincial-Small Claims,"AMEX BANK OF CANADA vs DICK, Hayden Prosper",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
+Kamloops Law Courts,44137,Provincial-Small Claims,"DEAN, Kristy vs 673057 B.C. LTD. DBA ROBIN'S SNOW & MARINE SERVICE",YES,2026-11-09,2026-11-12T01:07:47.968459+00:00
 Kamloops Law Courts,66250,Supreme-Supreme Civil (General),"HUTCHINSON, Leonard vs JOHNSON, Arthur",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Kamloops Law Courts,66255,Supreme-Supreme Civil (General),"CANADIAN IMPERIAL BANK OF COMMERCE vs CHARTERS, Dayna Nicole",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Kamloops Law Courts,66256,Supreme-Supreme Civil (General),"CANADIAN IMPERIAL BANK OF COMMERCE vs RAKKAR, Amandip Singh",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
@@ -151,6 +171,8 @@ Prince George Law Courts,2667620,Supreme- Enforcement/Legislated Statute,"BIC HA
 Prince George Law Courts,2667621,Supreme-Probate,"HUNTER, Sandra vs HUNTER, Blaine",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Prince George Law Courts,2667622,Supreme-Probate,"ERICKSON, Grant vs ERICKSON, Harry",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Prince George Law Courts,2667623,Supreme-Probate,"BROWN, Jamie vs FERGUSON, Donna",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
+Provincial Court,8406,Provincial-Small Claims,"CYDNEY HELLIER GRAY DESIGN vs BECKER, Yvonne",YES,2026-11-09,2026-11-12T01:07:47.968459+00:00
+Provincial Court,8407,Provincial-Small Claims,"PETERSEN MOTORSPORTS LTD. vs SNIDER, Martin",YES,2026-11-09,2026-11-12T01:07:47.968459+00:00
 Richmond Provincial Court,32069,Provincial-Small Claims,"LINMA HOLDINGS LTD. vs LI, Guochao",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
 Robson Square Provincial Court,2682258,Provincial-Small Claims,"AMEX BANK OF CANADA vs SELLS, Jason",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
 Robson Square Provincial Court,2682259,Provincial-Small Claims,"AMEX BANK OF CANADA vs ALIKHANIFARD, Padideh",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
@@ -224,6 +246,7 @@ Vancouver Law Courts,268381,Supreme-Supreme Civil (General),"MBW CANADA HOLDING 
 Vancouver Law Courts,268382,Supreme-Supreme Civil (General),"LEE, Angelina vs NEACSU, Traian",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Vancouver Law Courts,268383,Supreme-Supreme Civil (General),"THE OWNERS, STRATA PLAN BCS 1046 vs JUNG, Jin",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Vancouver Law Courts,268384,Supreme-Supreme Civil (General),MAPLE FREIGHT PARTNERSHIP vs 3240634 NOVA SCOTIA COMPANY,YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
+Vernon Law Courts,54931,Supreme-Probate,"DUCHARME, Robin vs DUCHARME, Glenda",YES,2026-11-09,2026-11-12T01:07:47.968459+00:00
 Victoria Law Courts,261358,Supreme-Probate,"FORSTER, Kathryn vs FORSTER, Maida",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Victoria Law Courts,261359,Supreme-Probate,"TAYLOR, Diane vs TAYLOR, Diane",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Victoria Law Courts,261360,Supreme-Probate,"SILETTA, Tanya vs GOWLLAND, Reta",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
@@ -237,6 +260,7 @@ Victoria Law Courts,2617260,Supreme-Supreme Civil (General),"GILLESE, Kevin vs B
 Victoria Law Courts,2617261,Supreme-Supreme Civil (General),"ROGERS, Kenneth vs ROGERS, Judy",YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Victoria Law Courts,2617263,Supreme-Supreme Civil (General),OG PREFAB LTD. vs SANGHA CONSTRUCTION LTD.,YES,2026-11-09,2026-11-10T23:48:53.887190+00:00
 Victoria Law Courts,2617563,Supreme- Enforcement/Legislated Statute,"WATSON, Peter vs BRENNAN, Virginia",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
+Victoria Law Courts,2617564,Supreme- Enforcement/Legislated Statute,DIRECTOR OF EMPLOYMENT STANDARDS vs ALMOND FRANCHISING INC,YES,2026-11-09,2026-11-12T01:07:47.968459+00:00
 Victoria Law Courts,262083,Provincial-Small Claims,"AMEX BANK OF CANADA vs OLESCHUK, Ryan John",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
 Victoria Law Courts,262084,Provincial-Small Claims,"AMEX BANK OF CANADA vs PRASHAR, Amish",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
 Victoria Law Courts,262085,Provincial-Small Claims,"AMEX BANK OF CANADA vs GLUSZCZAK, Brenda",YES,2026-11-09,2026-11-10T01:48:10.855350+00:00
@@ -412,6 +436,7 @@ Vernon Law Courts,54926,Supreme-Probate,"SCHULTZ, Stacey vs SCHULTZ, Shane",YES,
 Vernon Law Courts,54927,Supreme-Probate,"MELIKHANOV, Irina vs DIOMIDOV, Vladimir",YES,2026-11-06,2026-11-10T23:48:53.887190+00:00
 Vernon Law Courts,54928,Supreme-Probate,"WEBB, Amber vs DAVIS, Debra",YES,2026-11-06,2026-11-10T23:48:53.887190+00:00
 Vernon Law Courts,54929,Supreme-Probate,"WILLISTON, James vs WILLISTON, Douglas",YES,2026-11-06,2026-11-10T23:48:53.887190+00:00
+Vernon Law Courts,54930,Supreme-Probate,"LIGTENBERG, Stacey vs TURIK, Pamela",YES,2026-11-06,2026-11-12T01:07:47.968459+00:00
 Vernon Law Courts,59622,Supreme-Supreme Civil (General),"CHAPPELL, Stephany vs CHAPPELL, Kathryn",YES,2026-11-06,2026-11-10T01:48:10.855350+00:00
 Vernon Law Courts,59623,Supreme-Foreclosure,"COAST CAPITAL SAVINGS FEDERAL CREDIT UNION vs TANNER, Roderick",YES,2026-11-06,2026-11-10T01:48:10.855350+00:00
 Victoria Law Courts,261351,Supreme-Probate,"BURTON, Cameron vs BURTON, Christine",YES,2026-11-06,2026-11-10T23:48:53.887190+00:00
@@ -425,6 +450,7 @@ Victoria Law Courts,2617250,Supreme-Supreme Civil (General),"DALEP, Mahinder vs 
 Victoria Law Courts,2617251,Supreme-Supreme Civil (General),"BORDIAN, Daniele vs DUBNEY, Elizabeth",YES,2026-11-06,2026-11-06T23:34:45.020156+00:00
 Victoria Law Courts,2617253,Supreme-Supreme Civil (General),"HENDRY SWINTON MCKENZIE INSURANCE SERVICES INC. vs ENGLISH, Tod",YES,2026-11-06,2026-11-06T23:34:45.020156+00:00
 Victoria Law Courts,2617254,Supreme-Foreclosure,NEW CITY vs SAFETY MORTGAGE FUND INC. vs 1477426 B.C. LTD.,YES,2026-11-06,2026-11-06T23:34:45.020156+00:00
+Victoria Law Courts,2617560,Supreme-Supreme Civil (General),"CHESTACOW, Eugene vs WILLE DODGE CHRYSLER LTD",YES,2026-11-06,2026-11-12T01:07:47.968459+00:00
 Victoria Law Courts,262081,Provincial-Small Claims,"AMEX BANK OF CANADA vs ANDERSEN, Peter",YES,2026-11-06,2026-11-06T23:34:45.020156+00:00
 Abbotsford Law Courts,10742,Supreme-Foreclosure,"THE BANK OF NOVA SCOTIA vs MOEN, Bryan",YES,2026-11-05,2026-11-05T23:52:31.859717+00:00
 Abbotsford Law Courts,10746,Supreme-Probate,"NIELSEN, Philip vs NIELSEN, Jeanice",YES,2026-11-05,2026-11-06T23:34:45.020156+00:00
